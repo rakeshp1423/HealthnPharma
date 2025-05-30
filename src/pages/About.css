@@ -1,0 +1,107 @@
+/* Hero/Intro Section */
+.about-page {
+  background: #f7fafc;
+  color: #1e293b;
+}
+
+.about-intro {
+  position: relative;
+  background: linear-gradient(120deg, #e0f7fa 60%, #fff 100%);
+  color: #1e293b;
+  padding: 6rem 2rem;
+  border-radius: 0 0 2rem 2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 1;
+  min-height: 450px;
+}
+
+.about-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 3;
+  color: #0077b6; /* More visible, matches Home.jsx theme */
+}
+
+.about-intro p {
+  font-size: 1.2rem;
+  color: #1e293b; /* Darker for visibility */
+  max-width: 750px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.7;
+  position: relative;
+  z-index: 3;
+}
+
+.about-intro .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  z-index: 3;
+  position: relative;
+}
+
+.about-intro .cta-buttons a {
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 208, 0.3);
+}
+
+.about-intro .cta-buttons .primary-btn {
+  background: linear-gradient(135deg, #00ffd0, #00b4d8);
+  color: #000;
+}
+
+.about-intro .cta-buttons .primary-btn:hover {
+  background: #00c2a0;
+  transform: translateY(-2px);
+}
+
+.about-intro .cta-buttons .secondary-btn {
+  background: transparent;
+  border: 2px solid #00ffd0;
+  color: #00b4d8;
+}
+
+.about-intro .cta-buttons .secondary-btn:hover {
+  background: #00ffd033;
+  transform: translateY(-2px);
+}
+
+/* Remove background images */
+.about-intro-bg-img,
+.about-intro-bg-img.img2,
+.about-intro-bg-img.img3 {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    padding: 3rem 1rem;
+    min-height: 300px;
+  }
+
+  .about-intro h1 {
+    font-size: 2rem;
+  }
+
+  .about-intro p {
+    font-size: 1rem;
+  }
+
+  .about-intro .cta-buttons a {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

@@ -113,14 +113,52 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* Default sponsor card style */
 .sponsor-card {
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 
+    background 0.3s,
+    color 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s;
   position: relative;
-  border: 1px solid #e0e0e0;
+  border: 1.5px solid #e0e0e0;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  color: #222;
+}
+
+/* Gold theme hover */
+.sponsor-card.gold-theme:hover {
+  background: #fffbe6;
+  border-color: #ffd700;
+  color: #bfa100;
+  box-shadow: 0 6px 24px rgba(255, 215, 0, 0.13);
+}
+
+/* Purple theme hover */
+.sponsor-card.purple-theme:hover {
+  background: #f3e8ff;
+  border-color: #a259f7;
+  color: #6d28d9;
+  box-shadow: 0 6px 24px rgba(162, 89, 247, 0.13);
+}
+
+/* Pink theme hover */
+.sponsor-card.pink-theme:hover {
+  background: #ffe4ef;
+  border-color: #ff6f91;
+  color: #c9184a;
+  box-shadow: 0 6px 24px rgba(255, 111, 145, 0.13);
+}
+
+/* Blue theme hover */
+.sponsor-card.blue-theme:hover {
+  background: #e0f7fa;
+  border-color: #00b4d8;
+  color: #0077b6;
+  box-shadow: 0 6px 24px rgba(0, 180, 216, 0.13);
 }
 
 .sponsor-card:hover {

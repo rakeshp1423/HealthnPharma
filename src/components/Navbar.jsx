@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="navbar-links">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/about" className="nav-link">About Us</Link>
           <Link to="/details" className="nav-link">Event Details</Link>
           <Link to="/rsvp" className="nav-link">RSVP</Link>
           <Link to="/pricing" className="nav-link pricing-btn">Pricing</Link>
