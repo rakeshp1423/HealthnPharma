@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import hero1 from '../assets/hero1.png';
-import gallery2 from '../assets/hero2.png';
-import gallery3 from '../assets/hero3.png';
+import hero2 from '../assets/hero2.png';
+import hero3 from '../assets/hero3.png';
+import hero4 from '../assets/hero4.png';
+import TypingText from '../components/TypingText';
 import './About.css';
 
 const About = () => {
@@ -10,8 +12,8 @@ const About = () => {
       <div className="about-intro fade-in">
         {/* Layered background images */}
         <img src={hero1} alt="" className="about-intro-bg-img" aria-hidden="true" />
-        <img src={gallery2} alt="" className="about-intro-bg-img img2" aria-hidden="true" />
-        <img src={gallery3} alt="" className="about-intro-bg-img img3" aria-hidden="true" />
+        <img src={hero2} alt="" className="about-intro-bg-img img2" aria-hidden="true" />
+        <img src={hero3} alt="" className="about-intro-bg-img img3" aria-hidden="true" />
 
         <h1>About Bharat Economic Forum</h1>
         <p>
@@ -26,18 +28,26 @@ const About = () => {
 
       <div className="about-initiatives fade-in delay-1">
         <h2>Our Initiatives</h2>
-        <ul>
-          <li><strong>Industry Conclave 2025:</strong> A dynamic platform fostering thought-provoking discussions among Innovators, Influencers, and Investors to drive actionable strategies for India's development by 2047.</li>
-          <li><strong>Sustainable Livelihood Venture Studio:</strong> Focused on empowering communities through sustainable economic growth, fostering partnerships between startups, corporates, non-profits, and government bodies.</li>
-          <li><strong>Viksit Bharat Dialogues & Awards:</strong> Celebrating excellence through limited and exclusive awards for Innovation, Influence & Investment, aligning with PM Modi’s vision for a developed India.</li>
+        <ul className="initiatives-list">
+          <li className="initiative-card">
+            <strong>Industry Conclave 2025</strong>
+            <p>
+              <TypingText text="A dynamic platform fostering thought-provoking discussions among Innovators, Influencers, and Investors to drive actionable strategies for India's development by 2047." />
+            </p>
+          </li>
+          <li className="initiative-card">
+            <strong>Sustainable Livelihood Venture Studio</strong>
+            <p>
+              <TypingText text="Focused on empowering communities through sustainable economic growth, fostering partnerships between startups, corporates, non-profits, and government bodies." />
+            </p>
+          </li>
+          <li className="initiative-card">
+            <strong>Viksit Bharat Dialogues & Awards</strong>
+            <p>
+              <TypingText text="Celebrating excellence through limited and exclusive awards for Innovation, Influence & Investment, aligning with PM Modi’s vision for a developed India." />
+            </p>
+          </li>
         </ul>
-      </div>
-
-      <div className="about-founder fade-in delay-2">
-        <h2>Founder & Chairman: Manish Patel</h2>
-        <p>
-          Manish Patel is a visionary leader with deep expertise in investment facilitation through venture capitalists, angel investors, family offices, and institutional investors. Under his leadership, BEF has become a prominent platform connecting startups, non-profits, corporates, and government bodies to drive impactful growth across India. Known for his strategic acumen and innovation, he continues to guide efforts toward building a Viksit Bharat by its 100th Independence.
-        </p>
       </div>
 
       <div className="about-health fade-in delay-3">
@@ -71,17 +81,24 @@ const About = () => {
 
         <div className="health-media-kit">
           <h3>Media Kit for Health & Pharma Partners</h3>
-          <a href="/downloads/BEF_Health_Media_Kit.pdf" className="media-kit-btn" target="_blank" rel="noopener noreferrer">📥 Download Media Kit</a>
+          <a href="/downloads/BEF_Health_Media_Kit.pdf" className="media-kit-btn" target="_blank" rel="noopener noreferrer">Download Media Kit</a>
         </div>
       </div>
-
+      
       <div className="about-gallery fade-in delay-4">
         <h2>Gallery: Highlights from Previous Events</h2>
-        <div className="gallery-grid">
-          <img src="/images/gallery1.jpg" alt="BEF Event 1" />
-          <img src="/images/gallery2.jpg" alt="BEF Event 2" />
-          <img src="/images/gallery3.jpg" alt="BEF Event 3" />
-          <img src="/images/gallery4.jpg" alt="BEF Event 4" />
+        <div className="gallery-marquee">
+          <div className="gallery-track">
+            <img src={hero1} alt="BEF Event 1" />
+            <img src={hero2} alt="BEF Event 2" />
+            <img src={hero3} alt="BEF Event 3" />
+            <img src={hero4} alt="BEF Event 4" />
+            {/* Duplicate for seamless loop */}
+            <img src={hero1} alt="BEF Event 1 duplicate" aria-hidden="true" />
+            <img src={hero2} alt="BEF Event 2 duplicate" aria-hidden="true" />
+            <img src={hero3} alt="BEF Event 3 duplicate" aria-hidden="true" />
+            <img src={hero4} alt="BEF Event 4 duplicate" aria-hidden="true" />
+          </div>
         </div>
       </div>
     </section>
