@@ -1,0 +1,94 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 50;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  height: 32px;
+  width: 32px;
+  color: #2563eb;
+}
+
+.logo-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #2563eb;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #374151;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.18rem; /* Increased text size */
+  transition: color 0.2s, transform 0.2s;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+  transform: translateY(-2px) scale(1.07);
+}
+
+/* Gradient Border Pricing Button */
+.nav-link.pricing-btn {
+  position: relative;
+  background: #1e293b;
+  color: #fff !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.7rem;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(56,189,248,0.13);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-link.pricing-btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(45deg, #60a5fa, #a78bfa, #60a5fa);
+  border-radius: 10px;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.nav-link.pricing-btn:hover {
+  color: #fff;
+  transform: translateY(-3px) scale(1.09);
+  box-shadow: 0 5px 15px rgba(96, 165, 250, 0.4);
+}
