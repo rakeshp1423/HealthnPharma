@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import About from './pages/About';
 import EventDetails from './pages/EventDetails';
 import Home from './pages/Home';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           {/* <Route path="/sales" element={<SalesPage />} /> */}
         </Routes>
+        <ScrollToTopButton />
       </main>
       <Footer />
     </>
