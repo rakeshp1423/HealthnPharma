@@ -18,7 +18,7 @@ export default function Navbar() {
           <Link to="/" className={`nav-link${location.pathname === '/' ? ' active' : ''}`}>Home</Link>
           <Link to="/about" className={`nav-link${location.pathname === '/about' ? ' active' : ''}`}>About Us</Link>
           <Link to="/details" className={`nav-link${location.pathname === '/details' ? ' active' : ''}`}>Event Details</Link>
-          <Link to="/rsvp" className={`nav-link${location.pathname === '/rsvp' ? ' active' : ''}`}>RSVP</Link>
+          {/* <Link to="/rsvp" className={`nav-link${location.pathname === '/rsvp' ? ' active' : ''}`}>RSVP</Link> */}
           <Link to="/pricing" className={`nav-link pricing-btn${location.pathname === '/pricing' ? ' active' : ''}`}>Pricing</Link>
         </div>
       </div>

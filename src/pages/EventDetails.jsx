@@ -1,7 +1,37 @@
+import { useState } from 'react';
 import hero1 from '../assets/hero1.png';
 import "./EventDetails.css";
 
+const whyAttendPoints = [
+  {
+    title: "Engage in 16 industry roundtables",
+    desc: "Participate in focused discussions with industry leaders and experts on future-defining topics across sectors."
+  },
+  {
+    title: "Enjoy gourmet meals and luxury networking",
+    desc: "Savor curated gourmet cuisine while networking with top CEOs, policymakers, and innovators in a premium setting."
+  },
+  {
+    title: "Connect with CEOs, policymakers, innovators",
+    desc: "Build valuable relationships with influential figures shaping India's economic and innovation landscape."
+  },
+  {
+    title: "Media visibility across TV, social, and print",
+    desc: "Benefit from national media coverage, boosting your brand and ideas across multiple platforms."
+  },
+  {
+    title: "Witness the prestigious Viksit Bharat Awards",
+    desc: "Experience the celebration of excellence as outstanding contributors to India's growth are honored."
+  }
+];
+
 const EventDetails = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleToggle = idx => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
+
   return (
     <div className="event-container">
       <h1 className="event-title">BEF Industry Conclave 2025 – Event Details</h1>
@@ -120,22 +150,83 @@ const EventDetails = () => {
         </div>
       </section>
 
-      <section className="event-section event-why-attend">
+      <section className="event-section event-why-attend-section">
         <h2 className="event-card-title">Why Attend?</h2>
-        <p className="event-card-description">
-          ✓ Engage in 16 industry roundtables<br />
-          ✓ Enjoy gourmet meals and luxury networking<br />
-          ✓ Connect with CEOs, policymakers, innovators<br />
-          ✓ Media visibility across TV, social, and print<br />
-          ✓ Witness the prestigious Viksit Bharat Awards
-        </p>
+        <ul className="why-attend-list">
+          {whyAttendPoints.map((point, idx) => (
+            <li key={idx} className="why-attend-item" tabIndex={0}>
+              <span className="why-attend-title">{point.title}</span>
+              <span className="arrow">▼</span>
+              <div className="why-attend-desc">
+                <p>{point.desc}</p>
+                {/* Example: Add more content for each point */}
+                {idx === 0 && (
+                  <ul>
+                    <li>Meet top industry experts face-to-face</li>
+                    <li>Participate in exclusive roundtable discussions</li>
+                    <li>Get actionable insights for your sector</li>
+                  </ul>
+                )}
+                {idx === 1 && (
+                  <ul>
+                    <li>Enjoy chef-curated menus</li>
+                    <li>Network in a premium, relaxed setting</li>
+                    <li>Build lasting business relationships</li>
+                  </ul>
+                )}
+                {idx === 2 && (
+                  <ul>
+                    <li>Direct access to policymakers and innovators</li>
+                    <li>Expand your professional network</li>
+                    <li>Collaborate on new initiatives</li>
+                  </ul>
+                )}
+                {idx === 3 && (
+                  <ul>
+                    <li>Showcase your brand to a national audience</li>
+                    <li>Get featured in TV, social, and print media</li>
+                    <li>Boost your visibility and influence</li>
+                  </ul>
+                )}
+                {idx === 4 && (
+                  <ul>
+                    <li>Be inspired by stories of excellence</li>
+                    <li>Celebrate India's growth journey</li>
+                    <li>Connect with award-winning leaders</li>
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="event-section event-industries">
         <h2 className="event-card-title">Industries Covered</h2>
-        <p className="event-card-description">
-          FoodTech, AgriTech, EdTech, AdTech, MedTech, ClimateTech, FinTech, MSMEs, Tourism, CleanTech, Women Entrepreneurship, AI/Web3, Inclusion, Rural Development, Governance, Urban Planning
-        </p>
+        <div className="industries-grid">
+          {[
+            "FoodTech",
+            "AgriTech",
+            "EdTech",
+            "AdTech",
+            "MedTech",
+            "ClimateTech",
+            "FinTech",
+            "MSMEs",
+            "Tourism",
+            "CleanTech",
+            "Women Entrepreneurship",
+            "AI/Web3",
+            "Inclusion",
+            "Rural Development",
+            "Governance",
+            "Urban Planning"
+          ].map((industry, idx) => (
+            <div className="industry-box" key={idx}>
+              {industry}
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="event-section event-schedule">
@@ -150,19 +241,76 @@ const EventDetails = () => {
 
       <section className="event-section event-delegate">
         <h2 className="event-card-title">Delegate Options</h2>
-        <p className="event-card-description">
-          🎫 Standard Delegate - ₹35,000<br />
-          ✔ Access 2 dialogues, meals, networking, kit<br />
-          🎫 VIP Delegate - ₹55,000<br />
-          ✔ All sessions, VIP seating, lounge, concierge
-        </p>
+        <div className="delegate-cards-grid">
+          <div className="delegate-card">
+            <div className="delegate-type">🎫 Standard Delegate</div>
+            <div className="delegate-price">₹35,000</div>
+            <ul>
+              <li>Access 2 dialogues</li>
+              <li>Meals & networking</li>
+              <li>Delegate kit</li>
+            </ul>
+            <button
+              className="delegate-btn"
+              onClick={() => window.location.href = "/pricing"}
+            >
+              View Pricing
+            </button>
+          </div>
+          <div className="delegate-card vip">
+            <div className="delegate-type">🎫 VIP Delegate</div>
+            <div className="delegate-price">₹55,000</div>
+            <ul>
+              <li>All sessions access</li>
+              <li>VIP seating & lounge</li>
+              <li>Concierge service</li>
+            </ul>
+            <button
+              className="delegate-btn"
+              onClick={() => window.location.href = "/pricing"}
+            >
+              View Pricing
+            </button>
+          </div>
+        </div>
       </section>
 
       <section className="event-section event-sponsorship">
         <h2 className="event-card-title">Sponsorship Tiers</h2>
-        <p className="event-card-description">
-          🏆 Title Sponsor (₹25L), Powered By (₹10L), Industry Sponsor (₹5L), Delegate Kit (₹2L), Digital PR (₹3L), Invite Kit (₹4L)
-        </p>
+        <div className="sponsorship-cards-grid">
+          <div className="sponsor-card">
+            <div className="sponsor-tier">🏆 Title Sponsor</div>
+            <div className="sponsor-price">₹25L</div>
+          </div>
+          <div className="sponsor-card">
+            <div className="sponsor-tier">⚡ Powered By</div>
+            <div className="sponsor-price">₹10L</div>
+          </div>
+          <div className="sponsor-card">
+            <div className="sponsor-tier">🏢 Industry Sponsor</div>
+            <div className="sponsor-price">₹5L</div>
+          </div>
+          <div className="sponsor-card">
+            <div className="sponsor-tier">🎁 Delegate Kit</div>
+            <div className="sponsor-price">₹2L</div>
+          </div>
+          <div className="sponsor-card">
+            <div className="sponsor-tier">🌐 Digital PR</div>
+            <div className="sponsor-price">₹3L</div>
+          </div>
+          <div className="sponsor-card">
+            <div className="sponsor-tier">✉️ Invite Kit</div>
+            <div className="sponsor-price">₹4L</div>
+          </div>
+        </div>
+        <div style={{textAlign: "center", marginTop: "1.2rem"}}>
+          <button
+            className="delegate-btn"
+            onClick={() => window.location.href = "/pricing"}
+          >
+            View Sponsorship Pricing
+          </button>
+        </div>
       </section>
 
       <section className="event-section event-contact">

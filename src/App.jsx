@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Navbar from './components/Navbar';
 import About from './pages/About';
 import EventDetails from './pages/EventDetails';
-// import RSVP from './pages/RSVP';
+import Home from './pages/Home';
+import Pricing from './pages/Pricing';
 // import SalesPage from './pages/SalesPage';
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/details" element={<EventDetails />} />
-          {/* <Route path="/rsvp" element={<RSVP />} />
-          <Route path="/sales" element={<SalesPage />} /> */}
+          <Route path="/pricing" element={<Pricing />} />
+          {/* <Route path="/sales" element={<SalesPage />} /> */}
         </Routes>
       </main>
       <Footer />
