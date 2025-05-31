@@ -1,11 +1,11 @@
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  z-index: 50;
+  z-index: 100;
 }
 
 .navbar-container {
@@ -136,20 +136,46 @@
 }
 
 @media (max-width: 800px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1002;
+  }
   .navbar-container {
-    padding: 0 0.7rem; /* Reduce horizontal padding for mobile */
+    padding: 0 0.2rem;
+    min-width: 0;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .navbar-logo {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0;
+    position: relative;
+    z-index: 1002;
+    right: 0;
+    left: auto;
+    align-self: center;
   }
 
   .navbar-links {
     position: absolute;
     top: 64px;
     right: 0;
-    left: 0; /* Ensure it stretches full width */
+    left: 0;
     width: 100vw;
     background: #fff;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem 1.2rem 2rem 1.2rem; /* Reduce side padding */
+    padding: 1.5rem 1.2rem 2rem 1.2rem;
     box-shadow: 0 8px 32px rgba(0,180,216,0.09);
     z-index: 1001;
     display: none;
@@ -162,13 +188,6 @@
     margin: 1rem 0;
     font-size: 1.15rem;
     width: 100%;
-  }
-  .hamburger {
-    display: flex;
-    margin-left: 0.5rem; /* Reduce margin to keep inside screen */
-    margin-right: 0;     /* Remove any right margin */
-    position: relative;
-    z-index: 1002;
   }
 }
 
