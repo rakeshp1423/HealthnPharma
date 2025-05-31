@@ -268,6 +268,32 @@
   margin: 0;
 }
 
+/* Add to your Home.css or relevant CSS file */
+.benefit-full-section.slide-benefit {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+  will-change: opacity, transform;
+}
+
+.benefit-full-section.slide-benefit.in.left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.benefit-full-section.slide-benefit.in.right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.benefit-full-section.slide-benefit.left {
+  transform: translateX(-80px);
+}
+
+.benefit-full-section.slide-benefit.right {
+  transform: translateX(80px);
+}
+
 .benefit-content-row {
   display: flex;
   flex-direction: row;

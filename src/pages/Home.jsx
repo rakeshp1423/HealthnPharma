@@ -1,3 +1,4 @@
+import useInView from '../hooks/useInView';
 import './Home.css';
 
 const sponsorshipData = [
@@ -118,27 +119,32 @@ const HealthSponsorship = () => {
 			<div className="benefits-section fade-in">
 				<h2>Exclusive Health Partner Benefits</h2>
 				<div className="benefits-grid">
-					{benefits.map((benefit, idx) => (
-						<section
-							key={idx}
-							className="benefit-full-section"
-							style={{ background: idx % 2 === 0 ? "#f7fafc" : "#e0f7fa" }}
-						>
-							<div className={`benefit-content-row ${idx % 2 === 1 ? "reverse" : ""}`}>
-								<div className="benefit-image-col">
-									<img
-										src={benefit.image}
-										alt={benefit.title}
-										className="benefit-image"
-									/>
+					{benefits.map((benefit, idx) => {
+						const [ref, inView] = useInView({ threshold: 0.2 });
+						const direction = idx % 2 === 0 ? 'left' : 'right';
+						return (
+							<section
+								key={idx}
+								ref={ref}
+								className={`benefit-full-section slide-benefit ${direction} ${inView ? `in ${direction}` : ''}`}
+								style={{ background: idx % 2 === 0 ? '#f7fafc' : '#e0f7fa' }}
+							>
+								<div className={`benefit-content-row ${idx % 2 === 1 ? 'reverse' : ''}`}>
+									<div className="benefit-image-col">
+										<img
+											src={benefit.image}
+											alt={benefit.title}
+											className="benefit-image"
+										/>
+									</div>
+									<div className="benefit-text-col">
+										<h2>{benefit.title}</h2>
+										<p>{benefit.description}</p>
+									</div>
 								</div>
-								<div className="benefit-text-col">
-									<h2>{benefit.title}</h2>
-									<p>{benefit.description}</p>
-								</div>
-							</div>
-						</section>
-					))}
+							</section>
+						);
+					})}
 				</div>
 			</div>
 
