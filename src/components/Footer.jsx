@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Contact Us</h3>
           <p>
-            Health & Pharma Summit<br />
+            Bharat Economic Forum<br />
             123 Innovation Avenue,<br />
             New Delhi, India<br />
-            <a href="mailto:info@healthpharma.com">info@healthpharma.com</a><br />
+            <a href="mailto:dialogues@bharateconomicforum.org">dialogues@bharateconomicforum.org</a><br />
             +91 98765 43210
           </p>
         </div>
@@ -22,8 +22,8 @@ export default function Footer() {
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/details">Event Details</a></li>
-            <li><a href="/rsvp">RSVP</a></li>
-            <li><a href="/sales">Sales Page</a></li>
+            
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
         {/* Stay Connected */}
@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <div>
-          &copy; {new Date().getFullYear()} Health & Pharma Summit. All rights reserved.
+          &copy; {new Date().getFullYear()} Bharat Economic Forum. All rights reserved.
         </div>
         <div className="footer-policies">
           <button>Privacy Policy</button>

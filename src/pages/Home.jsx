@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
 import useInView from '../hooks/useInView';
 import './Home.css';
+
+// Import your local images from assets
+import benefit1 from '../assets/media.png';
+import benefit2 from '../assets/policy.jpg';
+import benefit3 from '../assets/podcast.jpg';
+import benefit4 from '../assets/award.jpg';
 
 const sponsorshipData = [
 	{
@@ -57,29 +64,25 @@ const benefits = [
 		title: 'Media Spotlights on Health Impact',
 		description:
 			'Gain national and regional media coverage for your health initiatives, with dedicated press releases, interviews, and feature stories highlighting your brand’s impact on the healthcare sector.',
-		image:
-			'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?fit=crop&w=400&q=80',
+		image: benefit1,
 	},
 	{
 		title: 'Direct Access to Policymakers',
 		description:
 			'Participate in exclusive roundtables and networking sessions with key government officials and policy influencers, giving your organization a voice in shaping the future of healthcare in India.',
-		image:
-			'https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=400&q=80',
+		image: benefit2,
 	},
 	{
 		title: 'Featured in Health Podcasts & Blogs',
 		description:
 			'Be featured in our official event podcasts and blogs, sharing your expertise, innovations, and success stories with a wide audience of healthcare professionals and enthusiasts.',
-		image:
-			'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80',
+		image: benefit3,
 	},
 	{
 		title: 'Award Nominations & Speaking Slots',
 		description:
 			'Get nominated for prestigious awards and secure speaking opportunities at the event, positioning your brand as a thought leader and innovator in the health and pharma industry.',
-		image:
-			'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?fit=crop&w=400&q=80',
+		image: benefit4,
 	},
 ];
 
@@ -109,11 +112,19 @@ const HealthSponsorship = () => {
 									<li key={i}>{benefit}</li>
 								))}
 							</ul>
-							<div className="price">{sponsor.price}</div>
-							<button className="partner-btn">Become a Partner</button>
+							<div className="sponsor-card-bottom">
+								<div className="price">{sponsor.price}</div>
+								<button className="partner-btn">Become a Partner</button>
+							</div>
 						</div>
 					))}
 				</div>
+				<div style={{ display: "flex", justifyContent: "center", marginTop: "2.5rem" }}>
+					<Link to="/pricing">
+						<button className="primary-btn">Explore All Options</button>
+					</Link>
+				</div>
+				<hr className="section-underline" />
 			</div>
 
 			<div className="benefits-section fade-in">

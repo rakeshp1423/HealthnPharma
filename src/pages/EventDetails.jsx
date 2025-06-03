@@ -154,12 +154,19 @@ const EventDetails = () => {
         <h2 className="event-card-title">Why Attend?</h2>
         <ul className="why-attend-list">
           {whyAttendPoints.map((point, idx) => (
-            <li key={idx} className="why-attend-item" tabIndex={0}>
+            <li
+              key={idx}
+              className={`why-attend-item${openIndex === idx ? " open" : ""}`}
+              tabIndex={0}
+              onMouseEnter={() => setOpenIndex(idx)}
+              onMouseLeave={() => setOpenIndex(null)}
+              onFocus={() => setOpenIndex(idx)}
+              onBlur={() => setOpenIndex(null)}
+            >
               <span className="why-attend-title">{point.title}</span>
-              <span className="arrow">▼</span>
+              <span className="arrow">{openIndex === idx ? "▲" : "▼"}</span>
               <div className="why-attend-desc">
                 <p>{point.desc}</p>
-                {/* Example: Add more content for each point */}
                 {idx === 0 && (
                   <ul>
                     <li>Meet top industry experts face-to-face</li>
@@ -278,30 +285,44 @@ const EventDetails = () => {
       <section className="event-section event-sponsorship">
         <h2 className="event-card-title">Sponsorship Tiers</h2>
         <div className="sponsorship-cards-grid">
-          <div className="sponsor-card">
-            <div className="sponsor-tier">🏆 Title Sponsor</div>
-            <div className="sponsor-price">₹25L</div>
-          </div>
-          <div className="sponsor-card">
-            <div className="sponsor-tier">⚡ Powered By</div>
-            <div className="sponsor-price">₹10L</div>
-          </div>
-          <div className="sponsor-card">
-            <div className="sponsor-tier">🏢 Industry Sponsor</div>
-            <div className="sponsor-price">₹5L</div>
-          </div>
-          <div className="sponsor-card">
-            <div className="sponsor-tier">🎁 Delegate Kit</div>
-            <div className="sponsor-price">₹2L</div>
-          </div>
-          <div className="sponsor-card">
-            <div className="sponsor-tier">🌐 Digital PR</div>
-            <div className="sponsor-price">₹3L</div>
-          </div>
-          <div className="sponsor-card">
-            <div className="sponsor-tier">✉️ Invite Kit</div>
-            <div className="sponsor-price">₹4L</div>
-          </div>
+          {[
+            {
+              tier: "🏆 Title Sponsor",
+              price: "₹25L",
+              info: "Prime branding, speaking slot, and exclusive media coverage."
+            },
+            {
+              tier: "⚡ Powered By",
+              price: "₹10L",
+              info: "Co-branding, panel participation, and digital promotions."
+            },
+            {
+              tier: "🏢 Industry Sponsor",
+              price: "₹5L",
+              info: "Industry roundtable branding and networking access."
+            },
+            {
+              tier: "🎁 Delegate Kit",
+              price: "₹2L",
+              info: "Branding on all delegate kits and event materials."
+            },
+            {
+              tier: "🌐 Digital PR",
+              price: "₹3L",
+              info: "Brand feature in digital PR and event communications."
+            },
+            {
+              tier: "✉️ Invite Kit",
+              price: "₹4L",
+              info: "Branding on exclusive invite kits for all delegates."
+            }
+          ].map((s, idx) => (
+            <div className="sponsor-card tier-card" key={idx}>
+              <div className="sponsor-tier">{s.tier}</div>
+              <div className="sponsor-price">{s.price}</div>
+              <div className="sponsor-info">{s.info}</div>
+            </div>
+          ))}
         </div>
         <div style={{textAlign: "center", marginTop: "1.2rem"}}>
           <button

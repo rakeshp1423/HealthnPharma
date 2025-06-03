@@ -389,41 +389,43 @@
 }
 
 .why-attend-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
-  list-style: none;
+  justify-content: center;
   padding: 0;
-  margin: 1.2rem 0 0 0;
+  margin: 2rem 0 0 0;
 }
 
 .why-attend-item {
-  border-radius: 1rem;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 2px 12px rgba(0,119,182,0.08);
-  overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
-  position: relative;
-  min-height: 120px;
+  background: #f7fafc;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.07);
+  padding: 1.2rem 1.5rem;
+  width: 320px;
+  min-height: 72px;
   cursor: pointer;
-  border: 1.5px solid #e0f7fa;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s, min-height 0.4s cubic-bezier(.4,2,.6,1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .why-attend-item:hover,
-.why-attend-item:focus-within {
+.why-attend-item.open {
   box-shadow: 0 8px 32px rgba(0,180,216,0.13);
-  border-color: #00b4d8;
-  transform: translateY(-4px) scale(1.025);
+  background: #e0f7fa;
+  transform: translateY(-4px) scale(1.03);
+  min-height: 210px;
 }
 
 .why-attend-title {
-  font-size: 1.13rem;
   font-weight: 700;
+  font-size: 1.13rem;
   color: #0077b6;
-  padding: 1.2rem 1.2rem 0.5rem 1.2rem;
-  display: block;
-  min-height: 56px;
-  transition: color 0.2s;
+  margin-bottom: 0.5rem;
 }
 
 .arrow {
@@ -432,39 +434,37 @@
   right: 1.2rem;
   font-size: 1.2rem;
   color: #00b4d8;
-  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
-  pointer-events: none;
-}
-
-.why-attend-item:hover .arrow,
-.why-attend-item:focus-within .arrow {
-  transform: rotate(180deg);
+  transition: transform 0.3s;
 }
 
 .why-attend-desc {
-  background: #f7fafc;
-  padding: 0 1.2rem;
-  font-size: 1.01rem;
-  color: #1e293b;
-  line-height: 1.7;
-  max-height: 0;
   opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, max-height 0.4s cubic-bezier(.4,2,.6,1);
+  margin-top: 0.5rem;
+  width: 100%;
   overflow: hidden;
-  border-top: 1px solid #e0f7fa;
-  transition: max-height 0.45s cubic-bezier(.4,2,.6,1), opacity 0.3s, padding 0.3s;
-  animation: dropdownFadeIn 0.5s;
 }
 
-.why-attend-item:hover .why-attend-desc,
-.why-attend-item:focus-within .why-attend-desc {
-  max-height: 300px;
+.why-attend-item.open .why-attend-desc {
   opacity: 1;
-  padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+  max-height: 400px;
+  pointer-events: auto;
+  transition: opacity 0.4s, max-height 0.4s cubic-bezier(.4,2,.6,1);
 }
 
-@keyframes dropdownFadeIn {
-  from { opacity: 0; transform: translateY(-10px);}
-  to { opacity: 1; transform: translateY(0);}
+.why-attend-desc ul {
+  margin: 0.7rem 0 0 1.2rem;
+  padding: 0;
+  font-size: 1rem;
+  color: #222;
+}
+
+.why-attend-desc p {
+  margin: 0;
+  font-size: 1.03rem;
+  color: #222;
 }
 
 /* New Industries Section */
@@ -590,9 +590,13 @@
 /* Sponsorship Cards */
 .sponsorship-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  width: 100%;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sponsor-card {
@@ -626,16 +630,50 @@
   outline: none;
 }
 
+.sponsor-card.tier-card {
+  background: #f7fafc;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 210px;
+  border: 1.5px solid #e0e0e0;
+  transition: 
+    box-shadow 0.35s cubic-bezier(.4,2,.6,1),
+    transform 0.35s cubic-bezier(.4,2,.6,1),
+    background 0.35s cubic-bezier(.4,2,.6,1),
+    border-color 0.35s cubic-bezier(.4,2,.6,1);
+  cursor: pointer;
+}
+
+.sponsor-card.tier-card:hover {
+  background: #e0f7fa;
+  box-shadow: 0 8px 32px rgba(0,180,216,0.13);
+  border-color: #00b4d8;
+  transform: translateY(-6px) scale(1.03);
+}
+
 .sponsor-tier {
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: #0077b6;
+  margin-bottom: 0.7rem;
 }
 
 .sponsor-price {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #00b4d8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0096c7;
+  margin-bottom: 0.7rem;
+}
+
+.sponsor-info {
+  font-size: 1rem;
+  color: #222;
+  margin-top: 0.2rem;
+  line-height: 1.5;
 }
 
 /* Responsive */
@@ -658,5 +696,14 @@
   .why-attend-list {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  .sponsorship-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .sponsor-card.tier-card {
+    min-height: 170px;
+    padding: 1.2rem 1rem;
   }
 }
